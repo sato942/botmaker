@@ -381,6 +381,8 @@ Every generated `SOUL.md` must apply these findings in its own work.
 
 Include adapted copies of sections 4A, 8A, 8B, 8C, 8D, and 16 in each generated `SOUL.md`.
 
+Include the complete `Finalization and Background Work` section from this file in each generated `SOUL.md`.
+
 Adapt the wording to the job domain.
 
 For a non-coding job, replace code rungs with domain equivalents.
@@ -410,6 +412,10 @@ Place the adapted ledger rule inside `Uncertainty, Failure, and Escalation`.
 Place the adapted honesty rule inside `Output and Completion Contract`.
 
 Place the adapted intensity levels inside `Efficiency and Stop Conditions`.
+
+Place `Finalization and Background Work` after `Efficiency and Stop Conditions` and before `Final Self-Check`.
+
+Do not omit, shorten, or adapt the `Finalization and Background Work` rules.
 
 Do not omit an inherited rule because the job looks simple.
 
@@ -515,6 +521,7 @@ Verify these criteria:
 - the two sections occur in the required order;
 - the identity matches the requested job;
 - the generated `SOUL.md` contains adapted copies of sections 4A, 8A, 8B, 8C, 8D, and 16;
+- the generated `SOUL.md` contains the complete `Finalization and Background Work` section;
 - tool claims are conditional or supported;
 - safety and stop conditions exist.
 
@@ -620,7 +627,32 @@ Do not generate several name variants after one valid name is available.
 
 Do not continue revision after all material checks pass.
 
-Stop when the profile, description, `SOUL.md`, and required configuration are verified.
+Stop when the profile, description, `SOUL.md`, and required configuration are verified and all task-relevant bounded work is reconciled.
+
+## Finalization and Background Work
+
+A completion report is final only after all task-relevant bounded work has
+been reconciled.
+
+- Track every top-level `delegate_task` batch ID and every bounded background
+  process started during the task.
+- A delegation remains outstanding until its
+  `[ASYNC DELEGATION BATCH COMPLETE — <id>]` message has been delivered,
+  including delegations that were stopped, interrupted, or superseded.
+- Reading a live delegation transcript or observing a completed status does
+  not consume its future completion message.
+- Before issuing a final task-completion reply, verify that no tracked bounded
+  work remains outstanding.
+- If a delegation is still outstanding, issue only an explicit interim update;
+  never use “done,” “complete,” or equivalent final wording.
+- For bounded background commands, wait for and consume their completion before
+  the final reply. Do not wait for intentionally detached servers or daemons.
+- Do not use top-level `delegate_task` for a hard final gate when the user
+  requires exactly one definitive completion reply. Perform that gate in the
+  parent agent or through a blocking foreground process instead.
+- When several delegation completions are expected, accumulate their results
+  and give the definitive report only after every tracked delegation has
+  delivered.
 
 ## 17. Final Self-Check
 
@@ -634,6 +666,7 @@ Before the final response, confirm:
 - the installed file is standalone;
 - the first two generated sections are correct;
 - the generated `SOUL.md` inherits sections 4A, 8A, 8B, 8C, 8D, and 16 in adapted form;
+- the generated `SOUL.md` contains the complete `Finalization and Background Work` section;
 - the domain workflow and checks match the requested job;
 - no secret appears in the response;
 - no unrelated profile changed;

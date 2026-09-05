@@ -34,11 +34,13 @@ Botmaker creates one Hermes profile, installs its identity, sets its description
 
 - `SOUL.md`: Botmaker's complete identity and authoritative operating contract.
 - `config.yaml`: Minimal model default without paths, secrets, tool preferences, or machine settings.
-- `distribution.yaml`: Hermes distribution manifest for version `2.0.1`.
+- `distribution.yaml`: Hermes distribution manifest for version `3.0.0`.
 - `README.md`: Installation and usage documentation.
 - `.gitignore`: Protection against committing credentials, personal state, and generated files.
 
 Botmaker does not require a custom profile-factory skill. Its complete behavior is defined by `SOUL.md`, which Hermes loads as the profile's primary identity.
+
+Version 3 requires Botmaker and every generated profile to reconcile bounded delegations and background work before a final completion report.
 
 This distribution does not ship the author's full configuration, `.env`, credentials, memories, sessions, logs, caches, or machine-specific paths. Each installer supplies their own credentials.
 
