@@ -1,5 +1,5 @@
 name: botmaker
-version: 2.0.0
+version: 2.0.1
 description: "Hermes profile factory that creates focused, verified job profiles from short requests"
 hermes_requires: ">=0.21.0"
 author: "Samuel T. Owen"
@@ -7,4 +7,3 @@ license: "MIT"
 distribution_owned:
   - SOUL.md
   - config.yaml
-  - skills/autonomous-ai-agents/hermes-profile-factory/
