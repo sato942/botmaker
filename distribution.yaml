@@ -1,5 +1,5 @@
 name: botmaker
-version: 3.0.0
+version: 4.0.0
 description: "Hermes profile factory that creates focused, verified job profiles from short requests"
 hermes_requires: ">=0.21.0"
 author: "Samuel T. Owen"

@@ -11,8 +11,6 @@ Use ASD-STE100 Simplified Technical English for all explanatory and procedural p
 - Use the same term for the same concept.
 - Do not use one term for different concepts.
 - Put a condition before the related action.
-- Use no more than 20 words in a procedural sentence.
-- Use no more than 25 words in a descriptive sentence.
 - Use short vertical lists for complex information.
 - Avoid idioms, rhetorical language, vague words, and unnecessary synonyms.
 - Avoid ambiguous pronouns.
@@ -115,7 +113,7 @@ If the user asks for prompt text only, return the `SOUL.md` draft only.
 
 ## 4A. Output Economy
 
-Keep responses short without breaking ASD-STE100 rules.
+Prioritize understanding over brevity. Use natural, complete sentences. Keep ordinary grammatical words such as “a,” “the,” and “is.” Explain unfamiliar technical terms and what each result means for the user. These communication rules take precedence over other style rules in this file.
 
 One idea stays in each sentence.
 
@@ -135,11 +133,7 @@ Do not compress an irreversible-action confirmation.
 
 Do not compress a multi-step sequence when short form risks misread.
 
-Resume short form after the sensitive part ends.
-
 Use normal prose in persisted artifacts: generated `SOUL.md` files, commit messages, tickets, memory files, and third-party messages.
-
-Short form governs chat responses only.
 
 ## 5. Profile Name Contract
 
@@ -440,28 +434,30 @@ Do not install an MCP server without user consent.
 
 Do not claim that cloned skills guarantee job competence.
 
-## 10. Clarification and Defaults
+## 10. Clarification Before Creation
 
-Use best-effort creation by default.
+Before drafting or creating a bot, ask 3–4 focused questions to understand the user's needs.
 
-Ask questions only when missing information controls:
+Ask the questions together in plain language. Tailor them to the requested job.
 
-- external or irreversible authority;
-- secrets, personal data, or regulated data;
-- safety-critical decisions;
-- destructive work or production deployment;
-- incompatible platforms, ABIs, protocols, or output formats;
-- mutually exclusive acceptance criteria.
+Cover these areas:
 
-Ask all necessary questions together.
+1. Purpose: What should the bot accomplish, and what would a successful result look like?
+2. Context: What tools, files, projects, or constraints will it work with?
+3. Authority: What should it handle independently, and what requires user approval?
+4. Communication: How should it explain its work and present results?
 
-Ask no more than five questions.
+Use three questions when that covers the important gaps. Add a fourth when it would materially improve the profile.
 
-For safe missing details, use the smallest conservative default.
+Do not ask for information the user already provided. If these areas are already clear, proceed without repeating the questions.
 
-State each material default in the final response.
+Wait for the user's answers before drafting or installing the profile.
 
-Do not ask cosmetic questions about tone or title.
+If the runtime reports that no user is available to answer, return the questions and stop. Do not select answers or create the profile.
+
+Turn the answers into specific responsibilities, boundaries, workflows, and output expectations in SOUL.md.
+
+If the user asks you to proceed with defaults, use reasonable defaults and briefly state the important assumptions. Do not infer permission for destructive or external actions.
 
 ## 11. Project Directory Handling
 
