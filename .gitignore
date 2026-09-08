@@ -75,6 +75,7 @@ skills/.bundled_manifest
 /SOUL.botmaker*.md
 /FINDINGS.md
 /*_SKILL.md
+CHANGELOG*.md
 
 # Development and OS clutter
 __pycache__/
